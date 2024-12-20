@@ -13,4 +13,17 @@ body {
   header {
     margin-top: 50px;
   }
-  
+  /* Install Button Styles */
+#installButton {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+#installButton:hover {
+  background-color: #45a049;
+}
