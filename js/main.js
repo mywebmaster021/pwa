@@ -20,11 +20,13 @@ if ('serviceWorker' in navigator) {
 window.addEventListener('beforeinstallprompt', (e) => {
   // Prevent the default mini-infobar or prompt from appearing
   e.preventDefault();
+  console.log("beforeinstallprompt fired");
+
   // Save the event so it can be triggered later
   deferredPrompt = e;
 
   // Show the install button
-  installButton.style.display = 'block';
+  installButton.style.display = 'block';  // Ensure button is visible
 
   // When the user clicks the install button, trigger the install prompt
   installButton.addEventListener('click', () => {
@@ -43,4 +45,4 @@ window.addEventListener('beforeinstallprompt', (e) => {
       installButton.style.display = 'none'; // Optionally hide the button after install
     });
   });
-}
+});
