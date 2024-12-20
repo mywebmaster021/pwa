@@ -3,6 +3,19 @@
 let deferredPrompt;
 const installButton = document.getElementById('installButton');
 
+// Register the Service Worker
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then((registration) => {
+        console.log('Service Worker registered with scope: ', registration.scope);
+      })
+      .catch((error) => {
+        console.log('Service Worker registration failed: ', error);
+      });
+  });
+}
+
 // Listen for the 'beforeinstallprompt' event
 window.addEventListener('beforeinstallprompt', (e) => {
   // Prevent the default mini-infobar or prompt from appearing
@@ -30,4 +43,4 @@ window.addEventListener('beforeinstallprompt', (e) => {
       installButton.style.display = 'none'; // Optionally hide the button after install
     });
   });
-});
+}
